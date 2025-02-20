@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 22:49:39 by aahadji           #+#    #+#             */
-/*   Updated: 2025/02/16 12:05:01 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/02/18 18:17:41 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	ft_reverse_rotate_b(int *a, int *b);
 void	ft_reverse_rotate_ab(int *a, int *b);
 ssize_t	ft_strlen(void *tab);
 int		*send_to_tab(int *tab);
+void	recive_to_tab(int *tab, int i);
 #endif
