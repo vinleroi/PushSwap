@@ -6,46 +6,44 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:58:44 by aahadji           #+#    #+#             */
-/*   Updated: 2025/02/19 00:30:59 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/03/22 10:09:23 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	send_to_tab(int *tab)
+void	sort_three(t_list **list)
 {
-	int	i;
-	int	j;
+	int	max;
 
-	i = 1;
-	j = 0;
-	while (tab[i])
-	{
-		tab[j] = tab[i];
-		i++;
-		j++;
-	}
-	tab[i] = 0;
+	max = ft_lstmax(list);
+	if ((*list)->content == max)
+		rotate(list);
+	if (ft_lstsize(*list) == 3 && (*list)->next->content == max)
+		r_rotate(list);
+	if ((*list)->next->content == ft_lstmin(*list))
+		swap(list);
 }
 
-void	recive_to_tab(int *tab, int i)
+void	chek_push_a_to_b(t_list **a, t_list **b)
+{
+}
+
+void	chek_reception_b_from_a(t_list **b)
+{
+	if ((*b)->content < (*b)->next->content)
+	{
+		swap(b);
+		ft_printf("sb\n");
+	}
+	else if ()
+}
+
+static int	reverseRotate(t_list **a)
 {
 	int len;
-	int j;
-	int temp;
-	int temp_second;
+	int min;
+	int pos;
 
-	len = ft_strlen(tab);
-	j = 0;
-	temp_second = 0;
-	temp = tab[j];
-	tab[j] = i;
-	j++;
-	while (tab[j])
-	{
-		temp_second = tab[j];
-		tab[j] = temp;
-		temp = temp_second;
-		j++;
-	}
+	min = ft_lstmin(*a);
 }

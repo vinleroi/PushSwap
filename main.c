@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_a.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/15 09:57:25 by aahadji           #+#    #+#             */
-/*   Updated: 2025/02/18 18:16:16 by aahadji          ###   ########.fr       */
+/*   Created: 2025/02/23 10:45:33 by aahadji           #+#    #+#             */
+/*   Updated: 2025/03/17 16:51:06 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
-void	ft_swap_a(int *a, int *b)
+
+
+int	main(int argc, char **argv)
 {
-	int	tmp;
+	t_list *a;
+	t_list *b;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
+	if (argc > 1)
+	{
+		a = check_args(argc, argv);
 
-void	ft_push_a(int *a, int *b)
-{
-	int *temp;
+		if (a == NULL)
+		{
+		}
 
-	if (!b)
-		return ;
-	if (!a)
-		a[0] = b[0];
-	recive_to_tab(&a, b[0]);
-	send_to_tab(b);
+		if (ft_lstsize(a) > 1 && !is_sorted(a))
+			sort(&a, &b);
+
+		clean(&a, &b);
+	}
+	return (0);
 }
