@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:58:44 by aahadji           #+#    #+#             */
-/*   Updated: 2025/03/22 10:09:23 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/03/22 15:04:11 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,56 @@ void	sort_three(t_list **list)
 
 void	chek_push_a_to_b(t_list **a, t_list **b)
 {
-}
-
-void	chek_reception_b_from_a(t_list **b)
-{
-	if ((*b)->content < (*b)->next->content)
+	while (ft_lstsize(a) > 0)
 	{
-		swap(b);
-		ft_printf("sb\n");
+		if ((*a)->content > ft_lstlast(a)->content)
+		{
+			r_rotate(a);
+			ft_printf("rra\n");
+		}
+		else if ((*a)->content > (*a)->next->content)
+		{
+			swap(a);
+			ft_printf("sa\n");
+		}
+		chek_reception_b_from_a(b, a);
 	}
-	else if ()
+	send_to_a(a, b);
 }
 
-static int	reverseRotate(t_list **a)
+void	chek_reception_b_from_a(t_list **b, t_list **a)
 {
-	int len;
-	int min;
-	int pos;
-
-	min = ft_lstmin(*a);
+	if ((*a)->content < (*b)->content)
+	{
+		while ((*a)->content < (*b)->content)
+		{
+			rotate(b);
+			ft_printf("rb\n");
+		}
+		push(a, b);
+		ft_printf("pb\n");
+	}
+	else if ((*a)->content > (*b)->content && (*a)->content > ft_lstlast(*b))
+	{
+		while ((*a)->content > ft_lstlast(*b))
+		{
+			r_rotate(b);
+			ft_printf("rrb\n");
+		}
+		push(a, b);
+		ft_printf("pb\n");
+	}
+	if ((*a)->content > (*b)->content)
+	{
+		push(a, b);
+		ft_printf("pb\n");
+	}
+}
+void	send_to_a(t_list **a, t_list **b)
+{
+	while (ft_lstsize(b) > 0)
+	{
+		push(b, a);
+		ft_printf("pa\n");
+	}
 }
