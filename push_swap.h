@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 22:49:39 by aahadji           #+#    #+#             */
-/*   Updated: 2025/03/22 15:02:25 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/03/26 21:07:35 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void	sort_three(t_list **list);
 void	chek_push_a_to_b(t_list **a, t_list **b);
 void	chek_reception_b_from_a(t_list **a, t_list **b);
 void	send_to_a(t_list **a, t_list **b);
+void	sort(t_list **a);
 #endif
