@@ -6,11 +6,11 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:58:44 by aahadji           #+#    #+#             */
-/*   Updated: 2025/03/22 15:04:11 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/03/26 21:20:01 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 void	sort_three(t_list **list)
 {
