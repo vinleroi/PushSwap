@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:58:44 by aahadji           #+#    #+#             */
-/*   Updated: 2025/03/26 21:20:01 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/03/27 17:45:15 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sort_three(t_list **list)
 {
 	int	max;
 
-	max = ft_lstmax(list);
+	max = ft_lstmax(*list);
 	if ((*list)->content == max)
 		rotate(list);
 	if (ft_lstsize(*list) == 3 && (*list)->next->content == max)
@@ -27,9 +27,9 @@ void	sort_three(t_list **list)
 
 void	chek_push_a_to_b(t_list **a, t_list **b)
 {
-	while (ft_lstsize(a) > 0)
+	while (ft_lstsize(*a) > 0)
 	{
-		if ((*a)->content > ft_lstlast(a)->content)
+		if ((*a)->content > ft_lstlast(*a)->content)
 		{
 			r_rotate(a);
 			ft_printf("rra\n");
@@ -56,9 +56,10 @@ void	chek_reception_b_from_a(t_list **b, t_list **a)
 		push(a, b);
 		ft_printf("pb\n");
 	}
-	else if ((*a)->content > (*b)->content && (*a)->content > ft_lstlast(*b))
+	else if ((*a)->content > (*b)->content
+		&& (*a)->content > ft_lstlast(*b)->content)
 	{
-		while ((*a)->content > ft_lstlast(*b))
+		while ((*a)->content > ft_lstlast(*b)->content)
 		{
 			r_rotate(b);
 			ft_printf("rrb\n");
@@ -74,7 +75,7 @@ void	chek_reception_b_from_a(t_list **b, t_list **a)
 }
 void	send_to_a(t_list **a, t_list **b)
 {
-	while (ft_lstsize(b) > 0)
+	while (ft_lstsize(*b) > 0)
 	{
 		push(b, a);
 		ft_printf("pa\n");

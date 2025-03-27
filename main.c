@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:45:33 by aahadji           #+#    #+#             */
-/*   Updated: 2025/03/26 21:22:38 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/03/27 17:40:35 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static t_list	*check_argv(int argc, char **argv)
 				ft_printf("Error in the argument sems to be overflow or you have dupes T.T");
 			}
 			else
-				ft_lstadd_back(&a, ft_lstnew(&temp));
+				ft_lstadd_back(&a, ft_lstnew(temp));
 		}
 		else
 		{
