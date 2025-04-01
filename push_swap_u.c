@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 09:57:25 by aahadji           #+#    #+#             */
-/*   Updated: 2025/03/27 17:35:01 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/03/28 21:25:44 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,15 @@ void	swap(t_list **src)
 
 void	push(t_list **src, t_list **dst)
 {
-	ft_lstadd_front(dst, ft_lstnew((*src)->content));
+	t_list	*temp;
+
+	if (*src)
+	{
+		temp = *src;
+		*src = (*src)->next;
+		temp->next = (*dst);
+		*dst = temp;
+	}
 }
 
 void	rotate(t_list **src)
