@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:45:33 by aahadji           #+#    #+#             */
-/*   Updated: 2025/05/24 16:15:15 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/05/30 17:29:33 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ static int	error_check(t_list **a, int value, int i, char **argv)
 	free(str_value);
 	return (0);
 }
-
+/**
+ * list of numbers create the list of all numbers
+ */
 static int	numbers(int pos, char *arg, t_list **a)
 {
 	int	value;
@@ -75,51 +77,44 @@ static int	numbers(int pos, char *arg, t_list **a)
 	}
 	return (0);
 }
+static void	complete_list(t_list **a, char **args)
+{
+	int	i;
 
+	i = 0;
+	while (args[i])
+	{
+		if (numbers(i, args[i], a))
+		{
+			ft_free_split(args);
+			return ;
+		}
+		i++;
+	}
+}
 int	main(int argc, char **argv)
 {
 	t_list	*head;
 	t_list	**a;
 	char	**split_args;
 	char	*parsed_args;
+	int		i;
 
 	head = NULL;
 	a = &head;
 	if (argc > 1)
 	{
-		parsed_args = parsed_entry(argv);
-		while (parsed_args[i])
-			sort(a);
+		split_args = flatten_arguments(argc, argv);
+		if (!split_args)
+		{
+			ft_printf("Error: memory allocation failed T.T\n");
+			return (1);
+		}
+		complete_list(a, split_args);
+		sort(a);
 		print_list(*a);
 		ft_lstclear(a, free);
 		ft_free_split(split_args);
 	}
 	return (0);
-}
-
-/**
- * sort the list
-∑tree */
-void	sort(t_list **a)
-{
-	t_list	*b;
-
-	b = NULL;
-	while (*a)
-	{
-		push_best_element(a, &b);
-		*a = (*a)->next;
-	}
-	push_back_to_a(a, &b);
-	ft_lstclear(&b, free);
-}
-
-void	ft_free_split(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab && tab[i])
-		free(tab[i++]);
-	free(tab);
 }

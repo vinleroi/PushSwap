@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 19:23:09 by aahadji           #+#    #+#             */
-/*   Updated: 2025/04/01 22:01:13 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/05/29 10:11:18 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,6 @@ void	push_back_to_a(t_list **a, t_list **b)
 			else
 			{
 				r_rotate(b);
-				ft_printf("rrb\n");
 				if (++max_i == size)
 					max_i = 0;
 			}

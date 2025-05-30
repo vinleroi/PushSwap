@@ -6,7 +6,7 @@
 #    By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/20 22:30:00 by aahadji           #+#    #+#              #
-#    Updated: 2025/05/22 22:58:52 by aahadji          ###   ########.fr        #
+#    Updated: 2025/05/30 17:25:08 by aahadji          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC_DIR		= .
 LIBFT_DIR	= ./libft
 PRINTF_DIR	= ./printf
 
-SRC			= main.c push_swap_u.c tab_check.c calculate_check.c
+SRC			= main.c push_swap_u.c tab_check.c calculate_check.c utils.c
 OBJ			= $(SRC:.c=.o)
 
 LIBFT		= $(LIBFT_DIR)/libft.a

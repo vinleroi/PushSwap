@@ -6,97 +6,82 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:45:33 by aahadji           #+#    #+#             */
-/*   Updated: 2025/05/24 17:05:49 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/05/30 17:28:37 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /**
- * print the list
+ * count the numbers of numbers in the argument
  */
-static void	print_list(t_list *list)
+static int	ft_count_word(const char *str)
 {
-	while (list)
+	int	count;
+	int	in_word;
+
+	count = 0;
+	in_word = 0;
+	while (*str)
 	{
-		ft_printf("%d ", list->content);
-		list = list->next;
+		if (*str != ' ' && in_word == 0)
+		{
+			in_word = 1;
+			count++;
+		}
+		else if (*str == ' ')
+			in_word = 0;
+		str++;
 	}
-	ft_printf("\n");
+	return (count);
 }
 
-static int	error_check(t_list **a, int value, int i, char **argv)
+static int	ft_count_args(char **args)
 {
-	char	*str_value;
+	int	count;
+	int	i;
 
-	str_value = ft_itoa(value);
-	if (!str_value)
-		return (1);
-	if (*a && ft_check_dupe(*a, value))
+	count = 0;
+	i = 0;
+	while (args[i])
 	{
-		ft_printf("Error: seems you have duplicates T.T\n");
-		ft_lstclear(a, free);
-		free(str_value);
-		return (1);
+		count += ft_count_word(args[i]);
+		i++;
 	}
-	if (value == -1 && ft_strcmp(argv[i], str_value) != 0)
-	{
-		ft_printf("Error: argument doesn't seem to be a valid digit T.T\n");
-		ft_lstclear(a, free);
-		free(str_value);
-		return (1);
-	}
-	free(str_value);
-	return (0);
+	return (count);
 }
 
-static int	numbers(int pos, char *arg, t_list **a)
+/*
+** fonction that return a char ** that is the arguments in one string
+*/
+char	**flatten_arguments(int argc, char **argv)
 {
-	int	value;
+	int		i;
+	int		k;
+	int		total;
+	char	**temp;
+	char	**flat;
+	int		word_count;
 
-	if (pos == 0 && ft_isdigit(arg))
+	flat = (char **)ft_calloc(sizeof(char *), (ft_count_args(argv) + 1));
+	if (!flat)
+		return (NULL);
+	i = 1;
+	k = 0;
+	while (i < argc)
 	{
-		value = ft_atoi(arg);
-		if (error_check(a, value, pos, &arg))
-			return (1);
-		ft_lstadd_back(a, ft_lstnew(value));
+		temp = split(argv[i], ' ');
+		word_count = 0;
+		while (temp[word_count])
+		{
+			flat[k++] = temp[word_count];
+			word_count++;
+		}
+		free(temp);
+		i++;
 	}
-	else if (pos > 0 && ft_isdigit(arg) && ft_strlen(arg) > 0)
-	{
-		value = ft_atoi(arg);
-		if (error_check(a, value, pos, &arg))
-			return (1);
-		ft_lstadd_back(a, ft_lstnew(value));
-	}
-	else
-	{
-		ft_printf("Error: argument doesn't seem to be a valid digit T.T\n");
-		return (1);
-	}
-	return (0);
+	return (flat);
 }
-
-int	main(int argc, char **argv)
-{
-	t_list	*head;
-	t_list	**a;
-	char	**split_args;
-	char	*parsed_args;
-
-	head = NULL;
-	a = &head;
-	if (argc > 1)
-	{
-		parsed_args = parsed_entry(argv);
-		while (parsed_args[i])
-			sort(a);
-		print_list(*a);
-		ft_lstclear(a, free);
-		ft_free_split(split_args);
-	}
-	return (0);
-}
-
 /**
  * sort the list
 ∑tree */
@@ -116,7 +101,7 @@ void	sort(t_list **a)
 
 void	ft_free_split(char **tab)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (tab && tab[i])

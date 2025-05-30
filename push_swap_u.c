@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 09:57:25 by aahadji           #+#    #+#             */
-/*   Updated: 2025/03/28 21:25:44 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/05/29 10:11:28 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ void	r_rotate(t_list **src)
 		last->next = *src;
 		*src = last;
 	}
+	ft_printf("rrb\n");
 }

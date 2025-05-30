@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 22:49:39 by aahadji           #+#    #+#             */
-/*   Updated: 2025/05/24 15:00:12 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/05/30 17:25:51 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,7 @@ int		ft_count_args(char **args);
 void	ft_free_split(char **tab);
 
 char	*parsed_entry(char **entry);
+int		numbers(int pos, char *arg, t_list **a);
+
+char	**flatten_arguments(int argc, char **argv);
 #endif
