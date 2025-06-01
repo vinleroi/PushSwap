@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:45:33 by aahadji           #+#    #+#             */
-/*   Updated: 2025/05/30 17:28:37 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/05/30 19:58:02 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	ft_count_word(const char *str)
 	return (count);
 }
 
-static int	ft_count_args(char **args)
+int	ft_count_args(char **args)
 {
 	int	count;
 	int	i;
@@ -58,7 +58,6 @@ char	**flatten_arguments(int argc, char **argv)
 {
 	int		i;
 	int		k;
-	int		total;
 	char	**temp;
 	char	**flat;
 	int		word_count;
@@ -70,7 +69,7 @@ char	**flatten_arguments(int argc, char **argv)
 	k = 0;
 	while (i < argc)
 	{
-		temp = split(argv[i], ' ');
+		temp = ft_split(argv[i], ' ');
 		word_count = 0;
 		while (temp[word_count])
 		{
@@ -90,11 +89,9 @@ void	sort(t_list **a)
 	t_list	*b;
 
 	b = NULL;
-	while (*a)
-	{
+	while (ft_lstsize(*a))
 		push_best_element(a, &b);
-		*a = (*a)->next;
-	}
+	// attention ton a est nul du coup faut dire que a = NULL et normalement c'est good
 	push_back_to_a(a, &b);
 	ft_lstclear(&b, free);
 }

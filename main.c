@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:45:33 by aahadji           #+#    #+#             */
-/*   Updated: 2025/05/30 17:29:33 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/05/30 19:37:47 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
  * print the list
  */
-static void	print_list(t_list *list)
+void	print_list(t_list *list)
 {
 	while (list)
 	{
@@ -52,18 +52,18 @@ static int	error_check(t_list **a, int value, int i, char **argv)
 /**
  * list of numbers create the list of all numbers
  */
-static int	numbers(int pos, char *arg, t_list **a)
+int	numbers(int pos, char *arg, t_list **a)
 {
 	int	value;
 
-	if (pos == 0 && ft_isdigit(arg))
+	if (pos == 0 && !ft_isdigit(arg))
 	{
 		value = ft_atoi(arg);
 		if (error_check(a, value, pos, &arg))
 			return (1);
 		ft_lstadd_back(a, ft_lstnew(value));
 	}
-	else if (pos > 0 && ft_isdigit(arg) && ft_strlen(arg) > 0)
+	else if (pos > 0 && !ft_isdigit(arg) && ft_strlen(arg) > 0)
 	{
 		value = ft_atoi(arg);
 		if (error_check(a, value, pos, &arg))
@@ -87,7 +87,9 @@ static void	complete_list(t_list **a, char **args)
 		if (numbers(i, args[i], a))
 		{
 			ft_free_split(args);
-			return ;
+			ft_lstclear(a, free);
+			ft_printf("Error: invalid argument T.T\n");
+			exit(1);
 		}
 		i++;
 	}
@@ -97,8 +99,6 @@ int	main(int argc, char **argv)
 	t_list	*head;
 	t_list	**a;
 	char	**split_args;
-	char	*parsed_args;
-	int		i;
 
 	head = NULL;
 	a = &head;
@@ -111,6 +111,7 @@ int	main(int argc, char **argv)
 			return (1);
 		}
 		complete_list(a, split_args);
+		print_list(*a);
 		sort(a);
 		print_list(*a);
 		ft_lstclear(a, free);

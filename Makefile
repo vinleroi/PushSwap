@@ -6,14 +6,14 @@
 #    By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/20 22:30:00 by aahadji           #+#    #+#              #
-#    Updated: 2025/05/30 17:25:08 by aahadji          ###   ########.fr        #
+#    Updated: 2025/05/30 18:15:41 by aahadji          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= push_swap
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -fsanitize=address -g -Wall -Wextra -Werror
 
 SRC_DIR		= .
 LIBFT_DIR	= ./libft

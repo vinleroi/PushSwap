@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 19:23:09 by aahadji           #+#    #+#             */
-/*   Updated: 2025/05/29 10:11:18 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/05/30 19:56:59 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void	push_best_element(t_list **a, t_list **b)
 		ft_printf("pb\n");
 		return ;
 	}
+	print_list(*a);
 	find_cheapest_move(*a, *b, &index_a, &index_b);
 	move_to_position(a, b, index_a, index_b);
 	push(a, b);

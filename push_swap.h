@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 22:49:39 by aahadji           #+#    #+#             */
-/*   Updated: 2025/05/30 17:25:51 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/05/30 19:37:55 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,6 @@ char	*parsed_entry(char **entry);
 int		numbers(int pos, char *arg, t_list **a);
 
 char	**flatten_arguments(int argc, char **argv);
+
+void	print_list(t_list *list);
 #endif
