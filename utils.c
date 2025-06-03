@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:45:33 by aahadji           #+#    #+#             */
-/*   Updated: 2025/05/30 19:58:02 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/06/01 18:27:58 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ void	sort(t_list **a)
 	b = NULL;
 	while (ft_lstsize(*a))
 		push_best_element(a, &b);
-	// attention ton a est nul du coup faut dire que a = NULL et normalement c'est good
 	push_back_to_a(a, &b);
 	ft_lstclear(&b, free);
 }
