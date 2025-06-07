@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 19:23:09 by aahadji           #+#    #+#             */
-/*   Updated: 2025/06/03 19:44:58 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/06/07 09:45:47 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static int	index_of_max(t_list *stack)
 	int		i;
 	t_list	*tmp;
 
-	tmp = stack;
-	max = tmp->content;
+	max = stack->content;
 	index = 0;
 	i = 0;
+	tmp = stack;
 	while (tmp)
 	{
 		if (tmp->content > max)
@@ -41,8 +41,8 @@ int	find_best_insert_position(t_list *b, int value)
 	int		i;
 	int		pos;
 	int		min_diff;
-	t_list	*tmp;
 	int		diff;
+	t_list	*tmp;
 
 	i = 0;
 	pos = 0;
@@ -64,29 +64,13 @@ int	find_best_insert_position(t_list *b, int value)
 	return (pos);
 }
 
-int	calculate_cost(int index_a, int index_b, int size_a, int size_b)
-{
-	int	cost_a;
-	int	cost_b;
-
-	if (index_a > size_a / 2)
-		cost_a = size_a - index_a;
-	else
-		cost_a = index_a;
-	if (index_b > size_b / 2)
-		cost_b = size_b - index_b;
-	else
-		cost_b = index_b;
-	return (cost_a + cost_b);
-}
-
 void	push_best_element(t_list **a, t_list **b)
 {
 	int	index_a;
 	int	index_b;
 
-	index_a = 0;
-	index_b = 0;
+	if (!*a)
+		return ;
 	if (!*b)
 	{
 		push(a, b);
@@ -119,7 +103,9 @@ void	push_back_to_a(t_list **a, t_list **b)
 			else
 			{
 				r_rotate(b);
-				if (++max_i == size)
+				ft_printf("rrb\n");
+				max_i++;
+				if (max_i == size)
 					max_i = 0;
 			}
 		}

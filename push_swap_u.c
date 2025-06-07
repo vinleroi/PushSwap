@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 09:57:25 by aahadji           #+#    #+#             */
-/*   Updated: 2025/05/29 10:11:28 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/06/07 09:15:03 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	rotate(t_list **src)
 
 void	r_rotate(t_list **src)
 {
-	t_list *temp;
-	t_list *last;
+	t_list	*temp;
+	t_list	*last;
 
 	if (src && (*src)->next)
 	{
@@ -69,5 +69,16 @@ void	r_rotate(t_list **src)
 		last->next = *src;
 		*src = last;
 	}
-	ft_printf("rrb\n");
+}
+
+void	rotate_both(t_list **a, t_list **b)
+{
+	rotate(a);
+	rotate(b);
+}
+
+void	r_rotate_both(t_list **a, t_list **b)
+{
+	r_rotate(a);
+	r_rotate(b);
 }

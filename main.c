@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:45:33 by aahadji           #+#    #+#             */
-/*   Updated: 2025/05/30 19:37:47 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/06/05 23:15:28 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,7 @@ int	main(int argc, char **argv)
 			return (1);
 		}
 		complete_list(a, split_args);
-		print_list(*a);
 		sort(a);
-		print_list(*a);
 		ft_lstclear(a, free);
 		ft_free_split(split_args);
 	}

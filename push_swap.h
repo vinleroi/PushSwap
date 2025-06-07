@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 22:49:39 by aahadji           #+#    #+#             */
-/*   Updated: 2025/05/30 19:37:55 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/06/07 09:14:57 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ void	swap(t_list **src);
 void	push(t_list **src, t_list **dst);
 void	rotate(t_list **src);
 void	r_rotate(t_list **src);
+void	rotate_both(t_list **a, t_list **b);
+void	r_rotate_both(t_list **a, t_list **b);
 
-void	push_best_element(t_list **a, t_list **b);
+	void push_best_element(t_list **a, t_list **b);
 void	move_to_position(t_list **a, t_list **b, int index_a, int index_b);
 int		find_cheapest_move(t_list *a, t_list *b, int *best_index_a,
 			int *best_index_b);
