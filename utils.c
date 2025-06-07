@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:45:33 by aahadji           #+#    #+#             */
-/*   Updated: 2025/06/01 18:27:58 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/06/07 18:56:08 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ char	**flatten_arguments(int argc, char **argv)
 	}
 	return (flat);
 }
+
 /**
  * sort the list
 ∑tree */
@@ -97,7 +98,7 @@ void	sort(t_list **a)
 
 void	ft_free_split(char **tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab && tab[i])

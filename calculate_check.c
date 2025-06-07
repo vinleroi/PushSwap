@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 19:23:09 by aahadji           #+#    #+#             */
-/*   Updated: 2025/06/07 09:45:47 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/06/07 18:49:16 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,29 @@ static int	index_of_max(t_list *stack)
 		i++;
 	}
 	return (index);
+}
+
+int	calculate_cost(int ia, int ib, int sa, int sb)
+{
+	int	cost_a;
+	int	cost_b;
+
+	if (ia <= sa / 2)
+		cost_a = ia;
+	else
+		cost_a = -(sa - ia);
+	if (ib <= sb / 2)
+		cost_b = ib;
+	else
+		cost_b = -(sb - ib);
+	if ((cost_a > 0 && cost_b > 0) || (cost_a < 0 && cost_b < 0))
+	{
+		if (ft_abs(cost_a) > ft_abs(cost_b))
+			return (ft_abs(cost_a));
+		else
+			return (ft_abs(cost_b));
+	}
+	return (ft_abs(cost_a) + ft_abs(cost_b));
 }
 
 int	find_best_insert_position(t_list *b, int value)
@@ -96,14 +119,12 @@ void	push_back_to_a(t_list **a, t_list **b)
 		{
 			if (max_i <= size / 2)
 			{
-				rotate(b);
-				ft_printf("rb\n");
+				rotate_b(b);
 				max_i--;
 			}
 			else
 			{
-				r_rotate(b);
-				ft_printf("rrb\n");
+				r_rotate_b(b);
 				max_i++;
 				if (max_i == size)
 					max_i = 0;
