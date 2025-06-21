@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 17:18:33 by aahadji           #+#    #+#             */
-/*   Updated: 2025/06/07 18:52:47 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/06/21 20:10:45 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned char *temp;
-	size_t total_size;
-	size_t i;
+	unsigned char	*temp;
+	size_t			total_size;
+	size_t			i;
 
 	total_size = count * size;
 	if (size != 0 && total_size / size != count)

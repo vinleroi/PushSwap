@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 10:45:33 by aahadji           #+#    #+#             */
-/*   Updated: 2025/06/05 23:15:28 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/06/21 20:12:57 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static int	error_check(t_list **a, int value, int i, char **argv)
 	free(str_value);
 	return (0);
 }
+
 /**
  * list of numbers create the list of all numbers
  */
@@ -77,6 +78,7 @@ int	numbers(int pos, char *arg, t_list **a)
 	}
 	return (0);
 }
+
 static void	complete_list(t_list **a, char **args)
 {
 	int	i;
@@ -94,6 +96,7 @@ static void	complete_list(t_list **a, char **args)
 		i++;
 	}
 }
+
 int	main(int argc, char **argv)
 {
 	t_list	*head;
