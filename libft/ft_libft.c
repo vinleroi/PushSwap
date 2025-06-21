@@ -60,10 +60,10 @@ static size_t	find_word_index(const char *s, char c, size_t start_pos)
 
 char	**ft_split(char const *s, char c)
 {
-	char **temp;
-	size_t i;
-	size_t index;
-	size_t size_tab;
+	char	**temp;
+	size_t	i;
+	size_t	index;
+	size_t	size_tab;
 
 	if (!s)
 		return (NULL);
