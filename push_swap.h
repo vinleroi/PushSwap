@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 22:49:39 by aahadji           #+#    #+#             */
-/*   Updated: 2025/06/07 18:30:48 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/06/21 22:42:46 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,17 @@ void	rotate_b(t_list **b);
 void	r_rotate_b(t_list **b);
 void	rotate_a(t_list **a);
 void	r_rotate_a(t_list **a);
+
+typedef struct s_sizes
+{
+	int	sa;
+	int	sb;
+}		t_sizes;
+
+typedef struct s_indices
+{
+	int	ia;
+	int	ib;
+}		t_indices;
+
 #endif

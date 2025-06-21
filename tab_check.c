@@ -6,48 +6,45 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:58:44 by aahadji           #+#    #+#             */
-/*   Updated: 2025/06/07 18:49:07 by aahadji          ###   ########.fr       */
+/*   Updated: 2025/06/21 22:42:41 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
-static void	update_best_indices(int i, int tmp_ib, int sa, int sb, int *ia,
-		int *ib)
+static void	update_best_indices(int i, int tmp_ib, t_sizes sizes,
+		t_indices *idx)
 {
-	if (i <= sa / 2)
-		*ia = i;
+	if (i <= sizes.sa / 2)
+		idx->ia = i;
 	else
-		*ia = -(sa - i);
-	if (tmp_ib <= sb / 2)
-		*ib = tmp_ib;
+		idx->ia = -(sizes.sa - i);
+	if (tmp_ib <= sizes.sb / 2)
+		idx->ib = tmp_ib;
 	else
-		*ib = -(sb - tmp_ib);
+		idx->ib = -(sizes.sb - tmp_ib);
 }
 
-int	find_cheapest_move(t_list *a, t_list *b, int *ia, int *ib)
+int	find_cheapest_move(t_list *a, t_list *b, t_indices *idx)
 {
-	int	i;
-	int	sa;
-	int	sb;
-	int	min_cost;
-	int	tmp_cost;
-	int	tmp_ib;
+	int		i;
+	int		min_cost;
+	int		tmp_cost;
+	int		tmp_ib;
+	t_sizes	sizes;
 
-	sa = ft_lstsize(a);
-	sb = ft_lstsize(b);
+	sizes.sa = ft_lstsize(a);
+	sizes.sb = ft_lstsize(b);
 	min_cost = INT_MAX;
 	i = 0;
 	while (a)
 	{
 		tmp_ib = find_best_insert_position(b, a->content);
-		tmp_cost = calculate_cost(i, tmp_ib, sa, sb);
+		tmp_cost = calculate_cost(i, tmp_ib, sizes.sa, sizes.sb);
 		if (tmp_cost < min_cost)
 		{
 			min_cost = tmp_cost;
-			update_best_indices(i, tmp_ib, sa, sb, ia, ib);
+			update_best_indices(i, tmp_ib, sizes, idx);
 		}
 		a = a->next;
 		i++;
